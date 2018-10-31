@@ -7,3 +7,7 @@
 <% @family.parents.each do |parent| %>
   <h3> Parent:</h3> <%= parent.name.capitalize %>
 <%end%>
+
+<%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
+  <input type=submit value='logout'>
+<% end %>

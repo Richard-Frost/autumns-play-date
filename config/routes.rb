@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :children
   resources :parents
   resources :sessions, only: [:new, :create]
+  resources :playdates
   get '/signup' => 'families#new'
   get '/login' => 'sessions#new'
   post '/logout' => 'sessions#destroy'
