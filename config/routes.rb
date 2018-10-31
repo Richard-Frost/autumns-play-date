@@ -3,5 +3,8 @@ Rails.application.routes.draw do
   resources :families
   resources :children
   resources :parents
+  resources :sessions, only: [:new, :create]
   get '/signup' => 'families#new'
+  get '/login' => 'sessions#new'
+  post '/logout' => 'sessions#destroy'
 end
