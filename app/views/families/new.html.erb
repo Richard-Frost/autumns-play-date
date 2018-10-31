@@ -1,23 +1,25 @@
 
 <%= form_for(@family) do |f| %>
-  <%= f.text_field :email %></br>
+  <%= f.label :email, "Family Email:"%></br>
+  <%= f.text_field :email %></br></br>
+  <%= f.label :password, "Password:"%></br>
   <%= f.password_field :password %></br>
 
   <%= f.fields_for :parents, @parent do |parent| %>
-    <%= parent.label :name %>
+    <%= parent.label :name, "Name:" %></br>
     <%= parent.text_field :name %><br>
  
-    <%= parent.label :email %>
+    <%= parent.label :email, "Email:" %></br>
     <%= parent.text_field :email %><br>
  
-    <%= parent.label :password %>
+    <%= parent.label :password, "Parent Password:"  %></br>
     <%= parent.password_field :password %><br>
   <% end %>
 
   <%= f.fields_for :children, @child do |child| %>
-    <%= child.label :name %>
+    <%= child.label :name, "Child's Name:" %></br>
     <%= child.text_field :name %><br>
-    <%= child.label :age %>
+    <%= child.label :age, "Age:" %></br>
     <%= child.text_field :age %><br>
   <% end %>
 
