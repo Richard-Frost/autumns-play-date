@@ -1,0 +1,9 @@
+<h1> Family </h1></br>
+
+<% @family.children.each do |child| %>
+  <h3> Child:</h3> <%= child.name.capitalize %>
+<%end%>
+
+<% @family.parents.each do |parent| %>
+  <h3> Parent:</h3> <%= parent.name.capitalize %>
+<%end%>
