@@ -20,8 +20,6 @@ class FamiliesController < ApplicationController
     @family = Family.find(params[:id])
   end
 
-
-
 private
 
   def family_params

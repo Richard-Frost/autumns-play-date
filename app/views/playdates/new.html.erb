@@ -1,14 +1,21 @@
 <p>Create a new play date: </p>
 
 <%= form_for(@playdate) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :location %>
-  <%= f.text_field :location %>
-  <% @family.children.each do |child| %>
-  <%= f.label :participants, "Select a Child" %>
-  <%= f.select :participants, options_from_collection_for_select(@family.children, :id, :name) %></br>
-<%= f.submit %>
+  <%= f.label :name %></br>
+  <%= f.text_field :name %></br>
+  <%= f.label :location %></br>
+  <%= f.text_field :location %></br>
+  <%= f.label :description %></br>
+  <%= f.text_field :description %></br>
+  When</br>
+  <input name="playdate[datetime]" id="datetimepicker" type="text" ></br>
+  <br>
+  <%= f.label :participants, "Select a Child:  " %>
+  <%= f.collection_check_boxes :participants, @family.children, :id, :name%></br>
+  <%= f.submit %>
+  <br>
 
-  <%end%>
 <%end%>
+
+
+
