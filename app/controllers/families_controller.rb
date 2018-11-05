@@ -9,17 +9,20 @@ class FamiliesController < ApplicationController
     @family = Family.new
     @family.children.build
     @family.parents.build
-    binding.pry
   end
 
   def create
     @family = Family.new(family_params)
     @family.save
+    session[user_id] = @family.id
     redirect_to family_path(@family.id)
   end
 
   def show
     @family = Family.find(params[:id])
+    if current_user != @family
+      redirect_to '/'
+    end
   end
 
 private

@@ -4,8 +4,8 @@
   <h3> Child:</h3> <%= child.name.capitalize %>
 <%end%>
 
-<% @family.parents.each do |parent| %>
-  <h3> Parent:</h3> <%= parent.name.capitalize %>
+<% @family.users.each do |user| %>
+  <h3> Users:</h3> <%= user.name.capitalize %>
 <%end%>
 
 <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>

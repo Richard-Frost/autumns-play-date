@@ -1,7 +1,6 @@
 
 
 <h1> Sign Up </h1>
-<% binding.pry %>
 
 <%= form_for(@family) do |f| %>
   <%= f.label :email, "Family Email:"%></br>
@@ -9,15 +8,15 @@
   <%= f.label :password, "Password:"%></br>
   <%= f.password_field :password %></br>
 
-  <%= f.fields_for :parents, @parent do |parent| %>
-    <%= parent.label :name, "Name:" %></br>
-    <%= parent.text_field :name %><br>
+  <%= f.fields_for :users, @user do |user| %>
+    <%= user.label :name, "Name:" %></br>
+    <%= user.text_field :name %><br>
  
-    <%= parent.label :email, "Email:" %></br>
-    <%= parent.text_field :email %><br>
+    <%= user.label :email, "Email:" %></br>
+    <%= user.text_field :email %><br>
  
-    <%= parent.label :password, "Parent Password:"  %></br>
-    <%= parent.password_field :password %><br>
+    <%= user.label :password, "Parent Password:"  %></br>
+    <%= user.password_field :password %><br>
   <% end %>
 
   <%= f.fields_for :children, @child do |child| %>
