@@ -1,17 +1,21 @@
 class PlaydatesController < ApplicationController
 
+  before_action :require_login
+
   def index
+    @playdates = Playdate.all
   end
 
   def new
     @playdate = Playdate.new
-    @family = Family.find(session[:family_id])
+    @family = Family.find(session[:user_id])
   end
 
   def create
     @playdate = Playdate.new(playdate_params)
-    @playdate.originator = session[:family_id]
+    @playdate.originator = session[:user_id]
     @playdate.save
+
     params[:playdate][:participants].each do |id|
       Participant.create(playdate_id: @playdate.id, child_id: id)
     end
@@ -25,9 +29,13 @@ class PlaydatesController < ApplicationController
   private
 
   def playdate_params
-    params.require(:playdate).permit(:datetime, :location, :description, :originator)
+    params.require(:playdate).permit(:name, :datetime, :location, :description, :originator)
   end
 
-  
+  private
+ 
+  def require_login
+    return head(:forbidden) unless session.include? :user_id
+  end
 
 end

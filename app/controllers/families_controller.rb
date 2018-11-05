@@ -5,9 +5,11 @@ class FamiliesController < ApplicationController
   end
 
   def new 
+
     @family = Family.new
     @family.children.build
     @family.parents.build
+    binding.pry
   end
 
   def create
