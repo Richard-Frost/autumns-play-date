@@ -5,10 +5,9 @@ class FamiliesController < ApplicationController
   end
 
   def new 
-
     @family = Family.new
     @family.children.build
-    @family.parents.build
+    @family.users.build
   end
 
   def create

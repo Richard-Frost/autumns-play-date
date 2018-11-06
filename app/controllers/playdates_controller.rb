@@ -9,6 +9,7 @@ class PlaydatesController < ApplicationController
   def new
     @playdate = Playdate.new
     @family = Family.find(session[:user_id])
+    @options = [parent, other]
   end
 
   def create
