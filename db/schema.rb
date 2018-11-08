@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_05_215647) do
+ActiveRecord::Schema.define(version: 2018_11_07_155736) do
 
   create_table "children", force: :cascade do |t|
     t.string "name"
@@ -54,6 +54,8 @@ ActiveRecord::Schema.define(version: 2018_11_05_215647) do
     t.datetime "updated_at", null: false
     t.string "title"
     t.boolean "parent", default: false
+    t.string "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
 end

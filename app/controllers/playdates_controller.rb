@@ -32,8 +32,6 @@ class PlaydatesController < ApplicationController
   def playdate_params
     params.require(:playdate).permit(:name, :datetime, :location, :description, :originator)
   end
-
-  private
  
   def require_login
     return head(:forbidden) unless session.include? :user_id
