@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :playdates
   resources :users
   resources :password_resets
+  root to: 'static#welcome'
   get '/add' => 'families#add'
   get '/signup' => 'families#new'
   get '/login' => 'sessions#new'
