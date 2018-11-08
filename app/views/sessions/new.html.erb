@@ -4,4 +4,6 @@
   <%= label_tag('user[user[password]]', "Password") %>
   <%= password_field_tag('user[password]')%>
   <input type=submit value='Sign In'>
+
+  <%= link_to "I forgot my password", new_password_reset_path %>
 <%end%>
