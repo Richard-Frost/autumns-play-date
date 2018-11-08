@@ -1,4 +1,32 @@
 @import "bootstrap";
+body {
+background-color: #f3f2ff;
+}
+
+b {
+  color: rgb(107, 90, 237);
+}
+
+.title {
+  color: coral;
+}
+
+.content {
+    background: white;
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,.9);
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.9);
+    box-shadow: 0 0 15px rgba(0,0,0,.5);
+    float: none; 
+    padding-top: .5%;
+    padding-bottom: 1%;
+    padding-right: 1%;
+    padding-left: 1%;
+    margin: 6% auto;
+    margin-bottom: 100px;
+    max-width: 960px;
+    min-width: 300px;
+    overflow-x: hidden  
+}
 
 
 .layout { 
@@ -12,3 +40,16 @@
 top-margin: 20px;
 bottom-margin: 2px;  
 }
+
+.navbar {
+    background-color: coral !important;
+    border-color: white !important;
+}
+.navbar-brand {
+    color: white !important;
+}
+
+.nav-link {
+  color: white !important;
+}
+

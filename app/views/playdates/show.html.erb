@@ -1,13 +1,12 @@
-<h1><%= @playdate.name %></h1>
-Location: <%= @playdate.location %></br>
-Description: <%= @playdate.description %></br>
+<h1 class="title"><%= @playdate.name %></h1>
+<b>Location:</b> <%= @playdate.location %></br>
+<b>Description:</b> <%= @playdate.description %></br>
 <br>
-Participants: </br>
-<br>
+<b>Participants:</b> </br>
 <% @playdate.children.each do |child| %>
-  <p><%= child.name %></p></br>
+  <%= child.name %></br>
 <%end%>
-<br>
+
 
 
 

@@ -4,6 +4,6 @@ module SessionsHelper
   end
 
   def current_user
-    Family.find(session[:user_id])
+    User.find(session[:user_id])
   end
 end
