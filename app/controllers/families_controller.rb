@@ -22,6 +22,13 @@ class FamiliesController < ApplicationController
     @family = Family.find(params[:id])
   end
 
+  def settings
+    @user = current_user
+    @family = current_user.family
+    @new_user = User.new
+    @new_child = Child.new
+  end
+
 private
 
   def family_params

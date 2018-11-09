@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :users
   resources :password_resets
   root to: 'static#welcome'
+  get '/settings' => 'families#settings'
   get '/add' => 'families#add'
   get '/signup' => 'families#new'
   get '/login' => 'sessions#new'

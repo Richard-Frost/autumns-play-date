@@ -1,0 +1,24 @@
+<%= form_for(@family) do |f| %>
+
+  <%= f.fields_for :users, @user do |user| %>
+    <%= user.label :name, "Name:" %></br>
+    <%= user.text_field :name %></br>
+ <br>
+
+    <%= user.label :email, "Email:" %></br>
+    <%= user.text_field :email %><br>
+  <% end %>
+  <br>
+
+  <%= f.fields_for :children, @child do |child| %>
+    <%= child.label :name, "Child's Name:" %></br>
+    <%= child.text_field :name %><br>
+  <br>
+    <%= child.label :age, "Age:" %></br>
+    <%= child.text_field :age %></br>
+  <% end %>
+  <br>
+
+  <%= f.submit %>
+
+<%end%>
