@@ -3,27 +3,23 @@
 <h1> Sign Up </h1>
 
 <%= form_for(@family) do |f| %>
-  <%= f.label :email, "Family Email:"%></br>
-  <%= f.text_field :email %></br></br>
-  <%= f.label :password, "Password:"%></br>
-  <%= f.password_field :password %></br>
 
   <%= f.fields_for :users, @user do |user| %>
-    <%= user.label :name, "Name:" %></br>
-    <%= user.text_field :name %><br>
+    <%= user.label :name, "Parent Name:" %></br>
+    <%= user.text_field :name, class: 'form-control' %><br>
  
     <%= user.label :email, "Email:" %></br>
-    <%= user.text_field :email %><br>
+    <%= user.text_field :email, class: 'form-control' %><br>
  
-    <%= user.label :password, "Parent Password:"  %></br>
-    <%= user.password_field :password %><br>
+    <%= user.label :password, "Password:"  %></br>
+    <%= user.password_field :password, class: 'form-control' %><br>
   <% end %>
 
   <%= f.fields_for :children, @child do |child| %>
     <%= child.label :name, "Child's Name:" %></br>
-    <%= child.text_field :name %><br>
+    <%= child.text_field :name, class: 'form-control' %><br>
     <%= child.label :age, "Age:" %></br>
-    <%= child.text_field :age %><br>
+    <%= child.text_field :age, class: 'form-control' %><br>
   <% end %>
 
   <%= f.submit %>

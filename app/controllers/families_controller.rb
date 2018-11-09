@@ -20,6 +20,7 @@ class FamiliesController < ApplicationController
 
   def show
     @family = Family.find(params[:id])
+    
   end
 
   def settings
@@ -30,7 +31,6 @@ class FamiliesController < ApplicationController
   def update
     @family = current_user.family
     @family.update(update_params)
-    binding.pry
     redirect_to family_path(current_user.id)
   end
 
@@ -43,6 +43,7 @@ private
   def update_params
     params.require(:family).permit(:email, :password, users_attributes: [:name, :email,:password, :id], children_attributes: [:name, :age, :id])
   end
+ 
 
 
 

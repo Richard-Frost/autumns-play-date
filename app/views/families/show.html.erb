@@ -17,3 +17,8 @@
 <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
   <input type=submit value='logout'>
 <% end %>
+<br>
+
+<h3> Upcoming Play Dates </h3>
+
+<%= family_playdates %>
