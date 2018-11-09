@@ -13,21 +13,19 @@ class FamiliesController < ApplicationController
   def create
     @family = Family.new(family_params)
     @family.save
-    session[user_id] = @family.id
+    @user = User.find_by_email(params[:family][:users_attributes]["0"][:email])
+    session[:user_id] = @user.id
     redirect_to family_path(@family.id)
   end
 
   def show
     @family = Family.find(params[:id])
-    if current_user != @family
-      redirect_to '/'
-    end
   end
 
 private
 
   def family_params
-    params.require(:family).permit(:email, :password, parents_attributes: [:name, :email,:password], children_attributes: [:name, :age])
+    params.require(:family).permit(:email, :password, users_attributes: [:name, :email,:password], children_attributes: [:name, :age])
   end
 
 end

@@ -1,12 +1,18 @@
 <h1> Family </h1></br>
 
+<h3>Familiy Members:</h3>
+
 <% @family.children.each do |child| %>
-  <h3> Child:</h3> <%= child.name.capitalize %>
+  <b> Child:</b> <%= child.name.capitalize %>
 <%end%>
+<br>
 
 <% @family.users.each do |user| %>
-  <h3> Users:</h3> <%= user.name.capitalize %>
+  <b><%= user.title %>:</b> <%= user.name.capitalize %>
 <%end%>
+<br>
+<br>
+<br>
 
 <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
   <input type=submit value='logout'>
