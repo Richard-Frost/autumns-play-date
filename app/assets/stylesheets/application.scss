@@ -17,24 +17,17 @@ b {
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.9);
     box-shadow: 0 0 15px rgba(0,0,0,.5);
     float: none; 
-    padding-top: .5%;
+    padding-top: none;
     padding-bottom: 1%;
     padding-right: 1%;
     padding-left: 1%;
-    margin: 6% auto;
+    margin: 1% auto;
     margin-bottom: 10px;
     max-width: 960px;
     min-width: 300px;
     overflow-x: hidden  
 }
 
-
-.layout { 
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-  background-color: coral;   
-}
 
 #form label {
 top-margin: 20px;
