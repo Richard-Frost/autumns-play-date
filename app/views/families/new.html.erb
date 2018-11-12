@@ -5,8 +5,11 @@
 <%= form_for(@family) do |f| %>
 
   <%= f.fields_for :users, @user do |user| %>
-    <%= user.label :name, "Parent Name:" %></br>
-    <%= user.text_field :name, class: 'form-control' %><br>
+    <%= user.label :first_name, "First Name:" %></br>
+    <%= user.text_field :first_name, class: 'form-control' %><br>
+    <%= user.label :last_name, "First Name:" %></br>
+    <%= user.text_field :last_name, class: 'form-control' %><br>
+
  
     <%= user.label :email, "Email:" %></br>
     <%= user.text_field :email, class: 'form-control' %><br>

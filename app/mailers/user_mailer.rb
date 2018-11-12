@@ -18,7 +18,10 @@ class UserMailer < ApplicationMailer
   def password_reset(user)
     @user = user
     mail :to => user.email, :subject => "Autumn's Play Date Password Reset"
+  end
 
-   
+  def family_invite(user)
+    @user = user
+    mail :to => user.email, :subject => "Autumn's Play Date Invite"
   end
 end

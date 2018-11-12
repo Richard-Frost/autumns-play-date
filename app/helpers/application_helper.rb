@@ -11,4 +11,10 @@ module ApplicationHelper
     end
   end
 
+  def family_id
+    binding.pry
+    user = User.find(session[:user_id])
+    user.family.id
+  end
+
 end

@@ -1,24 +1,23 @@
+<div class="content"</div>
 <h1> Family </h1></br>
 
 <h3>Familiy Members:</h3>
 
 <% @family.children.each do |child| %>
-  <b> Child:</b> <%= child.name.capitalize %>
+  <b> Child:</b> <%= child.name.capitalize %></br>
 <%end%>
 <br>
 
 <% @family.users.each do |user| %>
-  <b><%= user.title %>:</b> <%= user.name.capitalize %>
+  <b><%= user.title %>:</b> <%= user.first_name.capitalize %> <%= user.last_name.capitalize %></br>
 <%end%>
-<br>
-<br>
-<br>
+</div>
 
-<%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
-  <input type=submit value='logout'>
-<% end %>
-<br>
-
+<div class="content"</div>
 <h3> Upcoming Play Dates </h3>
 
 <%= family_playdates %>
+</div>
+<%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
+  <input type=submit value='logout'>
+<% end %>
