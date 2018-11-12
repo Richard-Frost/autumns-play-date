@@ -2,8 +2,7 @@ class UsersController < ApplicationController
 
 def new
   @user = User.new
-  me = User.find(session[:user_id])
-  @family = me.family
+  @family = current_user.family
 end
 
 def create
