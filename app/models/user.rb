@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
   belongs_to :family
+  has_many :comments
 
   def send_family_invite
     generate_token(:password_reset_token)

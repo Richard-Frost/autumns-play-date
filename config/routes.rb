@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   get '/signup' => 'families#new'
   get '/login' => 'sessions#new'
   post '/logout' => 'sessions#destroy'
+  post '/playdates/comment' => 'playdates#comment'
   root to: 'static#welcome'
 end

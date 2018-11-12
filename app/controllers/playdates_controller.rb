@@ -27,16 +27,6 @@ class PlaydatesController < ApplicationController
     @family = current_user.family
   end
 
-  def join
-    @playdate = Playdate.find_by_id(params[:playdate_id])
-    @playdate = Playdate.find_by_id(params[:playdate_id])
-    @user = Userfind_by_id(session[:id]) 
-    @children = params[:children]
-    @children.each do |child|
-      Participant.create(parent_id: @parent.id, child_id: child[:child_id], playdate_id: @playdate.id)
-    end
-  end
-
   def update
     @playdate = Playdate.find(params[:id])
     params[:playdate][:participants].each do |id|
@@ -45,10 +35,17 @@ class PlaydatesController < ApplicationController
     redirect_to playdate_path(@playdate.id)
   end
 
+  def comment
+    Comment.create(comment: params[:playdates][:comment], user_id: current_user.id, playdate_id: params[:playdate_id])
+binding.pry
+    redirect_to playdate_path(params[:playdate_id])
+  end
+
+
   private
 
   def playdate_params
-    params.require(:playdate).permit(:name, :datetime, :location, :description, :originator)
+    params.require(:playdate).permit(:name, :datetime, :location, :description, :originator, :comment)
   end
 
  

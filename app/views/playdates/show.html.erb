@@ -16,5 +16,26 @@
 <%end%>
 </div>
 
+<div class="content">
+  <h3>Comments</h3>
+  <br>
+
+<%= form_tag "/playdates/comment" do %>
+  <%= label_tag('[comment]', "Leave a comment:") %></br>
+  <%= text_area_tag('playdates[comment]') %>
+   <%= hidden_field_tag "playdate_id", @playdate.id %>
+  <input type="submit">
+<%end%>
+
+<br>
+
+  <% @playdate.comments.each do |comment| %>
+    <b><%= comment.user.first_name.capitalize %><%= ": "%></b><%= comment.comment %></br>
+  <% end %> 
+
+</div>
+
+
+
 
 

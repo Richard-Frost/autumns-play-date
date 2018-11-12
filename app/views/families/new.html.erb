@@ -3,11 +3,13 @@
 <h1> Sign Up </h1>
 
 <%= form_for(@family) do |f| %>
+  <%= f.label :name, "Add a fun Family Name" %></br>
+  <%= f.text_field :name, class: 'form-control' %>
 
   <%= f.fields_for :users, @user do |user| %>
-    <%= user.label :first_name, "First Name:" %></br>
+    <%= user.label :first_name %></br>
     <%= user.text_field :first_name, class: 'form-control' %><br>
-    <%= user.label :last_name, "First Name:" %></br>
+    <%= user.label :last_name%></br>
     <%= user.text_field :last_name, class: 'form-control' %><br>
 
  
