@@ -24,6 +24,7 @@ class PlaydatesController < ApplicationController
 
   def show
     @playdate = Playdate.find(params[:id])
+    @originator = User.find(@playdate.originator)
     @family = current_user.family
   end
 
@@ -37,7 +38,6 @@ class PlaydatesController < ApplicationController
 
   def comment
     Comment.create(comment: params[:playdates][:comment], user_id: current_user.id, playdate_id: params[:playdate_id])
-binding.pry
     redirect_to playdate_path(params[:playdate_id])
   end
 

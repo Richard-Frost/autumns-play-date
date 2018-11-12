@@ -9,6 +9,7 @@
   <%= f.text_field :location, class: 'form-control' %></br>
   <%= f.label :description %></br>
   <%= f.text_field :description, class: 'form-control'  %></br>
+  <%= f.hidden_field :originator, value: current_user.id %>
   When</br>
   <input name="playdate[datetime]" id="datetimepicker" type="text" class="form-control"></br>
   <br>

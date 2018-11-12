@@ -31,9 +31,10 @@
 
   <% @playdate.comments.each do |comment| %>
     <b><%= comment.user.first_name.capitalize %><%= ": "%></b><%= comment.comment %></br>
-  <% end %> 
+  <% end %>
 
 </div>
+This play date was created by <%=@originator.first_name%>!
 
 
 
