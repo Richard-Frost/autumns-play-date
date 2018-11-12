@@ -1,3 +1,4 @@
+<div class="content"</div>
 <%= form_for(@family) do |f| %>
 
   <%= f.fields_for :users, @user do |user| %>
@@ -25,6 +26,10 @@
   <%= f.submit %>
 
 <%end%>
+</div>
 
-<h1>Add to the family</h1>
+<div class="content"</div>
+
+<h3>Add family members</h3>
 <%= link_to "Add an adult", new_user_path %></br>
+</div>

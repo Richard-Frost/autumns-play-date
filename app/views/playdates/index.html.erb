@@ -1,3 +1,7 @@
+<div class="content"</div>
+
 <% @playdates.each do |playdate| %>
   <p><%= link_to playdate.name, playdate_path(playdate.id) %> - <%=playdate.datetime.strftime("%b %e, %l:%M %p")%></p>
 <%end%>
+
+</div>

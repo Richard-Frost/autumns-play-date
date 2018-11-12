@@ -1,3 +1,5 @@
+<div class="content"</div>
+
 <p>Create a new play date: </p>
 
 <%= form_for(@playdate) do |f| %>
@@ -6,16 +8,17 @@
   <%= f.label :location %></br>
   <%= f.text_field :location, class: 'form-control' %></br>
   <%= f.label :description %></br>
-  <%= f.text_field :description %></br>
+  <%= f.text_field :description, class: 'form-control'  %></br>
   When</br>
   <input name="playdate[datetime]" id="datetimepicker" type="text" class="form-control"></br>
   <br>
   <%= f.label :participants, "Select a Child:  " %>
-  <%= f.collection_check_boxes :participants, @family.children, :id, :name%></br>
+  <%= f.collection_check_boxes :participants, @family.children, :id, :name  %></br>
   <%= f.submit %>
   <br>
-
 <%end%>
+
+</div>
 
 
 
