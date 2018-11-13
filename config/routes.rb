@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users
   resources :password_resets
   resources :user_activations
+  get '/home' => 'users#home'
   get '/settings' => 'families#settings'
   get '/add' => 'families#add'
   get '/signup' => 'families#new'
