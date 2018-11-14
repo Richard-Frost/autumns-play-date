@@ -5,11 +5,15 @@ module ApplicationHelper
 
   def family_playdates
     @family.children.each do |child|
-      child.playdates.each do |playdate|
-       return link_to playdate.name, playdate_path(playdate.id)
+      if child.playdates.any?
+        child.playdates.each do |playdate|
+        return link_to playdate.name, playdate_path(playdate.id)
       end
     end
+      return "you are a friendless Yankee fan."
+    end
   end
+
 
   def family_id
     binding.pry

@@ -1,6 +1,5 @@
 class FamiliesController < ApplicationController
   
-
   def index
   end
 
@@ -15,13 +14,13 @@ class FamiliesController < ApplicationController
     @family = Family.new(family_params)
     @family.save
     @user = User.find_by_email(params[:family][:users_attributes]["0"][:email])
+    binding.pry
     session[:user_id] = @user.id
     redirect_to family_path(@family.id)
   end
 
   def show
-    @family = Family.find(params[:id])
-    
+    @family = Family.find(params[:id]) 
   end
 
   def settings
@@ -38,7 +37,7 @@ class FamiliesController < ApplicationController
 private
 
   def family_params
-    params.require(:family).permit(:email, :password, users_attributes: [:first_name, :last_name, :email,:password], children_attributes: [:name, :age])
+    params.require(:family).permit(:email, :password,:name, users_attributes: [:first_name, :last_name, :email,:password], children_attributes: [:name, :age])
   end
 
   def update_params

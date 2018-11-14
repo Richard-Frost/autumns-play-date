@@ -18,6 +18,20 @@
 
 <%= family_playdates %>
 </div>
+
+<div class="content"</div>
+<h3> Friends </h3>
+<%binding.pry%>
+<% @family.famconnects.each do |fam| %>
+   <% fam.children.each do |child| %>
+    <%= child.name %> </br>
+  <%end%>
+<%end%>
+</div>
+
+
 <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
   <input type=submit value='logout'>
 <% end %>
+
+

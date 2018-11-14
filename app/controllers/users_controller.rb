@@ -16,7 +16,7 @@ def update
 end
 
 def home
-  @family = Family.find(current_user.family.id) 
+  @family = Family.find(current_user.family.id)
 end
 
 private
