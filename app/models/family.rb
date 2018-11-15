@@ -3,6 +3,7 @@ class Family < ApplicationRecord
   has_many :users
   has_many :children
   has_many :others
+  has_many :requests
   
   has_many :family_connections
   #has_many :friendships

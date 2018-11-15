@@ -1,6 +1,13 @@
 @import "bootstrap";
-body {
-background-color: #f3f2ff;
+
+
+
+body { 
+  background: image_url('background2.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 b {
@@ -8,7 +15,7 @@ b {
 }
 
 .title {
-  color: coral;
+  color: #ff5000;
 }
 .test {color: #00a18a;}
 
@@ -22,10 +29,9 @@ b {
     padding-bottom: 1%;
     padding-right: 1%;
     padding-left: 1%;
-    margin: 1% auto;
-    margin-bottom: 10px;
-    max-width: 960px;
-    min-width: 300px;
+    margin: 0% auto;
+    margin-bottom: 4px;
+    
     overflow-x: hidden  
 }
 
@@ -36,7 +42,7 @@ bottom-margin: 2px;
 }
 
 .navbar {
-    background-color: coral !important;
+    background-color: #ff5000 !important;
     border-color: white !important;
 }
 .navbar-brand {

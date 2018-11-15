@@ -1,6 +1,7 @@
 class FamiliesController < ApplicationController
   
   def index
+    @families = Family.all
   end
 
   def new 
@@ -20,7 +21,8 @@ class FamiliesController < ApplicationController
   end
 
   def show
-    @family = Family.find(params[:id]) 
+    @family = Family.find(params[:id])
+    @request = Request.new
   end
 
   def settings

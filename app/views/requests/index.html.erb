@@ -1,0 +1,8 @@
+<div class="content">
+
+<h3 class="title"> Families requesting to connect with you </h3>
+<br>
+<% @requests.each do |request| %>
+<%= link_to request.family.name, family_path(request.famconnect_id) %></br>
+<%end%>
+</div>

@@ -1,3 +1,5 @@
 <h1> Home </h1>
 
-<%= @family.name %>
+<% @families.each do |family| %>
+  <%= link_to "family", family_path(family.id)%>
+<%end%>

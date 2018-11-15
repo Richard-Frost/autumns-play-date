@@ -3,6 +3,7 @@
 
 <h3>Familiy Members:</h3>
 
+
 <% @family.children.each do |child| %>
   <b> Child:</b> <%= child.name.capitalize %></br>
 <%end%>
@@ -17,4 +18,40 @@
 <h3> Upcoming Play Dates </h3>
 
 <%= family_playdates %>
+
+
 </div>
+
+<%= form_for(@request) do |f| %>
+  <%= f.hidden_field :family_id, value: params[:id] %>
+  <%= f.hidden_field :famconnect_id, value: current_user.family.id %>
+<%= f.submit%>
+<%end%>
+<div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <h1> Autumns Play Date </h1>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>
+
+
+
+
+

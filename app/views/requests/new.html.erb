@@ -1,0 +1,14 @@
+<%= form_for(@request) do |f| %>
+  
+  <%= f.hidden_field :family_id, value: current_user.family.id %>
+  <%= f.submit%>
+<%end%>
+
+<%= form_tag {controller:'requests', action: 'create', method: 'post'}) %>
+  <div class="field">
+    <%= label_tag :email %>
+    <%= text_field_tag :email, params[:email] %>
+  </div>
+  <div class="actions"><%= submit_tag "Send Request"%>
+<% end %>
+
