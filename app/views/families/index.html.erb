@@ -1,6 +1,6 @@
 <h1> Families </h1>
 <div class="content">
-<% @families.each do |family| %>
+<% families_near_me.each do |family| %>
   <%= link_to family.name, family_path(family.id)%></br>
 <%end%>
 </div>

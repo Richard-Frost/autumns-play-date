@@ -37,12 +37,16 @@ class FamiliesController < ApplicationController
 
 private
 
+  def geo
+    Geocoder.search(11215).first
+  end
+
   def family_params
-    params.require(:family).permit(:email, :password,:name, users_attributes: [:first_name, :last_name, :email,:password, :title], children_attributes: [:name, :age])
+    params.require(:family).permit(:email, :password,:name, :zipcode, users_attributes: [:first_name, :last_name, :email,:password, :title], children_attributes: [:name, :age]).merge(latitude: geo.latitude, longitude: geo.longitude)
   end
 
   def update_params
-    params.require(:family).permit(:email, :password, users_attributes: [:first_name, :last_name,  :email,:password, :id, :title], children_attributes: [:name, :age, :id])
+    params.require(:family).permit(:email, :password, :zipcode, users_attributes: [:first_name, :last_name,  :email,:password, :id, :title], children_attributes: [:name, :age, :id]).merge(latitude: geo.latitude, longitude: geo.longitude)
   end
  
 end

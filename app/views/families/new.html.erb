@@ -5,6 +5,8 @@
 <%= form_for(@family) do |f| %>
   <%= f.label :name, "Add a fun Family Name" %></br>
   <%= f.text_field :name, class: 'form-control' %>
+  <%= f.label :zipcode %></br>
+  <%= f.text_field :zipcode, class: 'form-control' %>
   <br>
 
   <%= f.fields_for :users, @user do |user| %>
