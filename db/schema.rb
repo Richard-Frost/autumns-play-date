@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_14_203025) do
+ActiveRecord::Schema.define(version: 2018_12_03_150156) do
 
   create_table "children", force: :cascade do |t|
     t.string "name"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2018_11_14_203025) do
     t.string "gender"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "bored", default: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -35,6 +36,9 @@ ActiveRecord::Schema.define(version: 2018_11_14_203025) do
     t.string "email"
     t.string "password_digest"
     t.string "name"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "zipcode"
   end
 
   create_table "family_connections", force: :cascade do |t|
@@ -59,6 +63,9 @@ ActiveRecord::Schema.define(version: 2018_11_14_203025) do
     t.integer "originator"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "zipcode"
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "requests", force: :cascade do |t|
@@ -66,6 +73,7 @@ ActiveRecord::Schema.define(version: 2018_11_14_203025) do
     t.integer "famconnect_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "message"
   end
 
   create_table "users", force: :cascade do |t|

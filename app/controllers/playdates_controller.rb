@@ -4,11 +4,12 @@ class PlaydatesController < ApplicationController
 
   def index
     @playdates = Playdate.all
+    binding.pry
   end
 
   def new
     @playdate = Playdate.new
-    @family = Family.find(session[:user_id])
+    @family = Family.find(my_family)
   end
 
   def create

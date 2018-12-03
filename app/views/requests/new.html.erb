@@ -1,5 +1,4 @@
 <%= form_for(@request) do |f| %>
-  
   <%= f.hidden_field :family_id, value: current_user.family.id %>
   <%= f.submit%>
 <%end%>

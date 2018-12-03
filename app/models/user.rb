@@ -20,6 +20,5 @@ class User < ApplicationRecord
   def generate_token(column)
       self.password_reset_token = SecureRandom.urlsafe_base64
   end 
-  
-  
+   
 end

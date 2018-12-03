@@ -5,21 +5,39 @@ class RequestsController < ApplicationController
   end
 
   def create
-    @request = Request.new(request_params)
-    redirect_to '/home'
+    request = Request.create(request_params)
+    binding.pry
+    redirect_to home_path
   end
 
   def index
-    @requests = current_user.family.requests
+    @requests = Request.all.where(famconnect_id: my_family)
   end
 
   def destroy
   end
 
+  def update 
+    req = Request.find(params[:id])
+    if accept
+      FamilyConnection.create(family_id: req.family_id, famconnect_id: req.famconnect_id)
+      FamilyConnection.create(family_id: req.famconnect_id, famconnect_id: req.family_id)
+      req.delete
+    else
+      req.delete
+    end
+    redirect_to '/requests'
+  end
+
   private
 
   def request_params
-    params.permit(:family_id, :famconnect_id)
+    params.require(:request).permit(:family_id, :famconnect_id, :message)
   end
+
+  def accept
+    params[:button_action] == "accept"
+  end
+
 
 end

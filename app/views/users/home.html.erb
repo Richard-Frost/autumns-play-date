@@ -1,11 +1,18 @@
 <div class="content"</div>
-<h1> Family </h1></br>
 
+<div class="content"</div>
+
+<h3> Hello <%=current_user.first_name %> </h3>
 <h3>Familiy Members:</h3>
+<hr/>
 
-<% @family.children.each do |child| %>
-  <b> Child:</b> <%= child.name.capitalize %></br>
-<%end%>
+  <% @family.children.each do |child| %>
+    <b> Child:</b> <%= child.name.capitalize %></br>
+    <%= form_for(child) do |f| %>
+      <%= f.select :bored, [true, false]%>
+      <%= f.submit %>
+    <%end%>
+  <%end%>
 <br>
 
 <% @family.users.each do |user| %>
@@ -21,10 +28,11 @@
 
 <div class="content"</div>
 <h3> Friends </h3>
+<hr/>
 
 <% @family.famconnects.each do |fam| %>
    <% fam.children.each do |child| %>
-    <%= child.name %> </br>
+   <div class="innerbox"><%= child.name %> </br></div>
   <%end%>
 <%end%>
 </div>
@@ -33,6 +41,9 @@
 <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
   <input type=submit value='logout'>
 <% end %>
+</div>
+
+
 <div>
   <br>
   <br>
@@ -55,7 +66,23 @@
   <br>
   <br>
   <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 </div>
+
+
+<div class="content">
+<h1 class="alert"> Bored Alert!!!!!!! </h1>
+  <% Child.i_am_bored.each do |child| %>
+    <div class="innerbox"><%= child.name %></div>
+  <%end%>
+</div>
+
+
+
 
 
 

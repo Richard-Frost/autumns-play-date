@@ -3,6 +3,11 @@
 <h3 class="title"> Families requesting to connect with you </h3>
 <br>
 <% @requests.each do |request| %>
-<%= link_to request.family.name, family_path(request.famconnect_id) %></br>
+  <%= link_to request.family.name, family_path(request.famconnect_id) %></br>
+  <%= request.message %>
+    <%= form_for request do |f| %>
+      <%= f.button "Accept", name: "button_action", value: "accept" %>
+      <%= f.button "Decline", name: "button_action", value: "decline" %>
+    <%end%>
 <%end%>
 </div>

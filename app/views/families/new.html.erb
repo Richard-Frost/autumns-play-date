@@ -5,14 +5,18 @@
 <%= form_for(@family) do |f| %>
   <%= f.label :name, "Add a fun Family Name" %></br>
   <%= f.text_field :name, class: 'form-control' %>
+  <br>
 
   <%= f.fields_for :users, @user do |user| %>
     <%= user.label :first_name %></br>
     <%= user.text_field :first_name, class: 'form-control' %><br>
     <%= user.label :last_name%></br>
     <%= user.text_field :last_name, class: 'form-control' %><br>
+    <%= user.label :title, 'Relationship to the child:' %></br>
+    <%= user.select :title, ['Parent', 'Grandparent', 'Nanny', 'Babysitter', 'Aunt', 'Uncle']%></br>
+    <br>
 
- 
+  
     <%= user.label :email, "Email:" %></br>
     <%= user.text_field :email, class: 'form-control' %><br>
  

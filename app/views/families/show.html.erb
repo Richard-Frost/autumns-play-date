@@ -1,7 +1,12 @@
 <div class="content"</div>
-<h1> Family </h1></br>
+<h1> Family </h1>
+</hr>
 
-<h3>Familiy Members:</h3>
+</br>
+
+<div class="section">
+  <h3>Familiy Members:</h3>
+</div>
 
 
 <% @family.children.each do |child| %>
@@ -16,18 +21,22 @@
 
 <div class="content"</div>
 <h3> Upcoming Play Dates </h3>
-
-<%= family_playdates %>
-
-
 </div>
 
-<%= form_for(@request) do |f| %>
-  <%= f.hidden_field :family_id, value: params[:id] %>
-  <%= f.hidden_field :famconnect_id, value: current_user.family.id %>
-<%= f.submit%>
-<%end%>
-<div>
+
+  <% if !connected? && my_family != params[:id].to_i %>
+  <div class="content">
+    <%= form_for(@request) do |f| %>
+      <%= f.label :message, "Include a message with your request (optional)" %>
+      <%= f.text_field :message, class: 'form-control'  %></br>
+      <%= f.hidden_field :famconnect_id, value: params[:id], class: 'form-control'  %>
+      <%= f.hidden_field :family_id, value: current_user.family.id %>
+    <%= f.submit%>
+    <%end%>
+  <%end%>
+  </div>
+
+  <div>
   <br>
   <br>
   <br>
@@ -49,7 +58,7 @@
   <br>
   <br>
   <br>
-</div>
+  </div>
 
 
 

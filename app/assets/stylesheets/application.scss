@@ -11,7 +11,7 @@ body {
 }
 
 b {
-  color: rgb(107, 90, 237);
+  color: #00a18a;;
 }
 
 .title {
@@ -29,12 +29,13 @@ b {
     padding-bottom: 1%;
     padding-right: 1%;
     padding-left: 1%;
-    margin: 0% auto;
-    margin-bottom: 4px;
     
     overflow-x: hidden  
 }
 
+.friends {
+
+}
 
 #form label {
 top-margin: 20px;
@@ -51,6 +52,30 @@ bottom-margin: 2px;
 
 .nav-link {
   color: white !important;
+}
+
+.innerbox
+{
+   width:250px; /* or whatever width you want. */
+   max-width:250px; /* or whatever width you want. */
+   display: inline-block;
+   background-color: white;
+   margin: 0% auto;
+   margin-bottom: 4px;
+   padding-left: 1%;
+   border: 1px solid #ff5000; 
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+.alert {
+  color: red;
 }
 
 
