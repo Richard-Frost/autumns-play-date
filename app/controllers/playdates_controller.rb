@@ -4,7 +4,6 @@ class PlaydatesController < ApplicationController
 
   def index
     @playdates = Playdate.all
-    binding.pry
   end
 
   def new

@@ -1,24 +1,22 @@
-<div class="content"</div>
+<div class="content">
 
-<div class="content"</div>
+  <div class="content">
 
-<h3> Hello <%=current_user.first_name %> </h3>
-<h3>Familiy Members:</h3>
-<hr/>
-
+  <b> Hello <%=current_user.first_name %> </b>
+  <hr/>
   <% @family.children.each do |child| %>
-    <b> Child:</b> <%= child.name.capitalize %></br>
+    <p> Is <%= child.name.capitalize %> bored today? </p></br>
     <%= form_for(child) do |f| %>
       <%= f.select :bored, [true, false]%>
       <%= f.submit %>
     <%end%>
   <%end%>
 <br>
+  </div>
+  <br>
 
-<% @family.users.each do |user| %>
-  <b><%= user.title %>:</b> <%= user.first_name.capitalize %> <%= user.last_name.capitalize %></br>
-<%end%>
-</div>
+  <%= today %>
+
 
 <div class="content"</div>
 <h3> Upcoming Play Dates </h3>

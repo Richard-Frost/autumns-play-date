@@ -7,7 +7,7 @@ module ApplicationHelper
     @family.children.each do |child|
       if child.playdates.any?
         child.playdates.each do |playdate|
-        return link_to playdate.name, playdate_path(playdate.id)
+        link_to playdate.name, playdate_path(playdate.id)
       end
     end
       return "you are a friendless Yankee fan."
@@ -16,7 +16,6 @@ module ApplicationHelper
 
 
   def family_id
-    binding.pry
     user = User.find(session[:user_id])
     user.family.id
   end
