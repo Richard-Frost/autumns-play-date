@@ -36,16 +36,12 @@ class PlaydatesController < ApplicationController
     redirect_to playdate_path(@playdate.id)
   end
 
-  def comment
-    Comment.create(comment: params[:playdates][:comment], user_id: current_user.id, playdate_id: params[:playdate_id])
-    redirect_to playdate_path(params[:playdate_id])
-  end
-
-
+ 
+ 
   private
 
   def playdate_params
-    params.require(:playdate).permit(:name, :datetime, :location, :description, :originator, :comment)
+    params.require(:playdate).permit(:name, :datetime, :location, :description, :originator)
   end
 
  

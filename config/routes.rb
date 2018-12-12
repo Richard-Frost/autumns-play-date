@@ -14,7 +14,13 @@ Rails.application.routes.draw do
   get '/signup' => 'families#new'
   get '/login' => 'sessions#new'
   post '/logout' => 'sessions#destroy'
-  post '/playdates/comment' => 'playdates#comment'
   post '/requests' => 'request#create'
   root to: 'static#welcome'
+
+  resources :playdates do
+    resources :comments
+  end
+
+
+
 end

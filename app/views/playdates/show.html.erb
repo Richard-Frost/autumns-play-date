@@ -20,7 +20,7 @@
   <h3>Comments</h3>
   <br>
 
-<%= form_tag "/playdates/comment" do %>
+<%= form_tag "/playdates/#{@playdate.id}/comments" do %>
   <%= label_tag('[comment]', "Leave a comment:") %></br>
   <%= text_area_tag('playdates[comment]') %>
    <%= hidden_field_tag "playdate_id", @playdate.id %>
@@ -31,6 +31,13 @@
 
   <% @playdate.comments.each do |comment| %>
     <b><%= comment.user.first_name.capitalize %><%= ": "%></b><%= comment.comment %></br>
+
+    <% if comment.user_id == current_user.id %>
+      <%= link_to "Edit", edit_playdate_comment_path(@playdate.id, comment.id) %>
+  
+      <%= link_to "Delete", playdate_comment_path(@playdate.id, comment.id)  , method: :delete, data: { confirm: "Really?" } %>
+    <%end%>
+  <br>
   <% end %>
 
 </div>

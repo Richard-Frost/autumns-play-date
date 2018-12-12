@@ -2,15 +2,13 @@
 
   <div class="content">
   <b> Hello <%=current_user.first_name %> </b>
-  <hr/>
   </div>
 
 
 <!-- Child Section -->
 
   <% my_children.each do |child| %>
-  <% binding.pry %>
-
+ 
     <div class="content">
 
     <h3><%=child.name%></h3>
@@ -19,25 +17,31 @@
     <% if child.playdate_today.any? %>
       <% child.playdate_today.each do |playdate| %>
         <b><%= playdate.datetime.strftime("%l:%M %p") %> <%= link_to playdate.name, playdate_path(playdate) %></b></br>
-      <%end%>
-      <% else %>
+    <%end%>
+    <% else %>
         <B>You do not have a play date scheduled today</b>
-      <%end%>
-      <br>
+    <%end%>
+    <br>
 
     <b> Play dates: </b></br> 
 
-    <% child.upcoming_playdates.each do |playdate| %>
-   <%= playdate.datetime.strftime("%b %e, %l:%M %p")%> <%= link_to playdate.name, playdate_path(playdate) %></br>
-   <%end%>
+  <% child.upcoming_playdates.each do |playdate| %>
+    <%= playdate.datetime.strftime("%b %e, %l:%M %p")%> <%= link_to playdate.name, playdate_path(playdate) %></br>
+  <%end%>
+</div>
+<br>
 
-  </b> Update status: <%= child.name.capitalize %> bored today? </b>
+<div class="content">
+  </b> Update status: Is <%= child.name.capitalize %> bored today? </b>
     <%= form_for(child) do |f| %>
       <%= f.select :bored, [true, false]%>
       <%= f.submit %>
     <%end%>
 </div>
 <%end%>
+<br>
+
+
 
 <div class="content"</div>
 <h3> Friends </h3>
@@ -49,6 +53,7 @@
   <%end%>
 <%end%>
 </div>
+<br>
 
 
 <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>

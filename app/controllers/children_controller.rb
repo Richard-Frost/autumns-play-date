@@ -14,4 +14,5 @@ class ChildrenController < ApplicationController
   def child_params
     params.require(:child).permit(:bored)
   end
+  
 end

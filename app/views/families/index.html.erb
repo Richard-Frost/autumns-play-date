@@ -1,8 +1,11 @@
 <h1> Families </h1>
+
 <div class="content">
-<% families_near_me.each do |family| %>
-  <% unless family.id == my_family %>
-  <%= link_to family.name, family_path(family.id)%></br>
-<%end%>
-<%end%>
+
+  <% families_near_me.each do |family| %>
+    <% unless family.id == my_family %>
+    <%= link_to family.name, family_path(family.id)%></br>
+    <%end%>
+  <%end%>
+  
 </div>

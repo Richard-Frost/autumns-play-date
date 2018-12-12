@@ -8,7 +8,6 @@ class UserActivationsController < ApplicationController
   end
 
   def update
-    binding.pry
     @user = User.find_by_password_reset_token(params[:id])
     @user.update(reset_params)
 
