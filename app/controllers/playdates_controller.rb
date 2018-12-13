@@ -28,11 +28,14 @@ class PlaydatesController < ApplicationController
     @family = current_user.family
   end
 
+  def edit
+    @playdate = Playdate.find(params[:id])
+    @family = Family.find(my_family)
+  end
+
   def update
     @playdate = Playdate.find(params[:id])
-    params[:playdate][:participants].each do |id|
-      Participant.create(playdate_id: @playdate.id, child_id: id)
-    end
+    @playdate.update(playdate_params)
     redirect_to playdate_path(@playdate.id)
   end
 
