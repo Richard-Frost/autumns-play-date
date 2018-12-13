@@ -33,9 +33,11 @@
     <b><%= comment.user.first_name.capitalize %><%= ": "%></b><%= comment.comment %></br>
 <div>
     <% if comment.user_id == current_user.id %>
+    <div class="comment">
       <%= link_to "Edit", edit_playdate_comment_path(@playdate.id, comment.id), class: 'small-left' %>
   
-      <%= link_to " Delete", playdate_comment_path(@playdate.id, comment.id), class: 'small-left'  , method: :delete, data: { confirm: "Really?" } %>
+      <%= link_to "Delete", playdate_comment_path(@playdate.id, comment.id), class: 'small-left'  , method: :delete, data: { confirm: "Really?" } %>
+    </div>
     <%end%>
   </div>
   <br>
