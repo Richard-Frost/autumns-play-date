@@ -1,7 +1,7 @@
 <div class="content">
 
   <div class="content">
-  <b> Hello <%=current_user.first_name %> </b>
+    <b> Hello <%=current_user.first_name %> </b>
   </div>
 
 
@@ -11,19 +11,19 @@
  
     <div class="content">
 
-    <h3><%=child.name%></h3>
-    <b>today:</b></br>
+    <h4><%=child.name%></h4>
+    <b>Today:</b></br>
 
     <% if child.playdate_today.any? %>
       <% child.playdate_today.each do |playdate| %>
         <b><%= playdate.datetime.strftime("%l:%M %p") %> <%= link_to playdate.name, playdate_path(playdate) %></b></br>
-    <%end%>
-    <% else %>
-        <B>You do not have a play date scheduled today</b>
+      <%end%>
+    <%else%>
+        <small><%=child.name%> does not have a play date scheduled today</small>
     <%end%>
     <br>
 
-    <b> Play dates: </b></br> 
+    <b>Play Dates: </b></br> 
 
   <% child.upcoming_playdates.each do |playdate| %>
     <%= playdate.datetime.strftime("%b %e, %l:%M %p")%> <%= link_to playdate.name, playdate_path(playdate) %></br>
@@ -41,10 +41,8 @@
 <%end%>
 <br>
 
-
-
 <div class="content"</div>
-<h3> Friends </h3>
+<h4> Friends </h4>
 <hr/>
 
 <% @family.famconnects.each do |fam| %>
