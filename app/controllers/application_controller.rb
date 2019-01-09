@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
-  helper_method :current_user, :logged_in?, :authenticate_user!, :is_parent?, :connected?, :my_family, :families_near_me
+  helper_method :current_user, :logged_in?, :authenticate_user!, :is_parent?, :connected?, :my_family, :families_near_me, :require_login
 
   def home
   end
@@ -50,6 +50,7 @@ class ApplicationController < ActionController::Base
 
   def families_near_me
     geo = Geocoder.search(current_user.family.zipcode.to_i).first
+    binding.pry
     lat = geo.latitude
     lon = geo.longitude
     distance = 5
@@ -58,7 +59,9 @@ class ApplicationController < ActionController::Base
     Family.within_bounding_box(box)
   end
 
-
+  def require_login
+    return head(:forbidden) unless session.include? :user_id
+  end
 
 end
 

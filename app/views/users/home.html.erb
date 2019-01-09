@@ -1,7 +1,9 @@
-<div class="content">
+<div class="cont2">
 
   <div class="content">
-    <b> Hello <%=current_user.first_name %> </b>
+    <div class="content2">
+    <h5> Hello <%=current_user.first_name %> </h5>
+    </div>
   </div>
 
 
@@ -9,37 +11,71 @@
 
   <% my_children.each do |child| %>
  
-    <div class="content">
+  <div class="content">
+    <div class="content2">
 
-    <h4><%=child.name%></h4>
-    <b>Today:</b></br>
+    <h5 class="blue"><%=child.name%></h5>
+    <h6>Today:</h6>
 
     <% if child.playdate_today.any? %>
       <% child.playdate_today.each do |playdate| %>
         <b><%= playdate.datetime.strftime("%l:%M %p") %> <%= link_to playdate.name, playdate_path(playdate) %></b></br>
       <%end%>
     <%else%>
-        <small><%=child.name%> does not have a play date scheduled today</small>
+        <small><%=child.name%> does not have a play date scheduled today</small></br>
     <%end%>
-    <br>
 
-    <b>Play Dates: </b></br> 
+    <h6 class="blue">Play Dates: </h6></br> 
 
-  <% child.upcoming_playdates.each do |playdate| %>
-    <%= playdate.datetime.strftime("%b %e, %l:%M %p")%> <%= link_to playdate.name, playdate_path(playdate) %></br>
+    <% if child.upcoming_playdates.any? %>
+
+      <% child.upcoming_playdates.each do |playdate| %>
+        <%= playdate.datetime.strftime("%b %e, %l:%M %p")%> <%= link_to playdate.name, playdate_path(playdate) %></br>
+      <%end%>
+    <% else %>
+      <small> <%=child.name%> does not have any play dates scheduled</small></br>
+    <% end %>
+    </div>
+  </div>
+
+
+
+  <div class="content">
+    <div class="content2">
+    <h6 class="blue">Update status: Is <%= child.name.capitalize %> bored today? </h6>
+
+    <%= form_for(child) do |f| %>
+      <%if child.bored%>
+        <%= f.hidden_field :bored, value: false %>
+        <%= f.submit "turn bored alert off" %>
+      <% else %>
+        <%= f.submit "turn bored alert on" %>
+        <%= f.hidden_field :bored, value: true %>
+      <%end%>
+    <%end%>
+
+
+    <% form_for(child) do |f| %>
+      <% f.check_box :bored, checked: child.bored,  class: 'js-switch'%>
+      <% if child.bored %>
+      <% f.submit "turn alert off" %>
+      <%else%> 
+      <% f.submit "turn on alert" %>
+      <%end%>
+    <%end%>
+    </div>
+  </div>
   <%end%>
-</div>
-<br>
 
 <div class="content">
-  </b> Update status: Is <%= child.name.capitalize %> bored today? </b>
-    <%= form_for(child) do |f| %>
-      <%= f.select :bored, [true, false]%>
-      <%= f.submit %>
-    <%end%>
+  <div class="content2">
+
+<h6 class="red">Bored Alert!!!!!!! </h6>
+  <% Child.i_am_bored.each do |child| %>
+    <div class="innerbox"><%= link_to child.name, child_path(child.id) %></div>
+  <%end%>
+  </div>
 </div>
-<%end%>
-<br>
 
 <div class="content"</div>
 <h4> Friends </h4>
@@ -47,11 +83,13 @@
 
 <% @family.famconnects.each do |fam| %>
    <% fam.children.each do |child| %>
-   <div class="innerbox"><%= child.name %> </br></div>
+   <%= child.name %> </br>
   <%end%>
 <%end%>
 </div>
 <br>
+
+
 
 
 <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
@@ -71,7 +109,7 @@
   <br>
   <br>
   <br>
-  <h1 class="title"> Autumns Play Date </h1>
+  <b> Autumns Play Date </b>
   <br>
   <br>
   <br>
@@ -88,17 +126,5 @@
   <br>
   <br>
 </div>
-
-
-<div class="content">
-<h1 class="alert"> Bored Alert!!!!!!! </h1>
-  <% Child.i_am_bored.each do |child| %>
-    <div class="innerbox"><%= child.name %></div>
-  <%end%>
-</div>
-
-
-
-
 
 

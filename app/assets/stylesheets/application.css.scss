@@ -1,16 +1,16 @@
+/*
+*= require switchery
+*/
+
 @import "bootstrap";
 
-
-
 body { 
-  background: image_url('2.jpg') no-repeat center center fixed; 
+  background: image_url('green2.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
-
-
 
 b {
   color: #00a18a;
@@ -19,45 +19,64 @@ b {
 .title {
   color: #ff5000;
 }
-.test {color: #00a18a;}
 
 .content {
     background: white;
+    float: none; 
+    padding-top: none;
+    padding-bottom: 1%;
+    margin-bottom: 1%;
+    overflow-x: hidden  
+}
+
+.content2 {
+    background: white;
+    float: none; 
+    padding-top: none;
+    padding-bottom: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+    overflow-x: hidden   
+}
+
+.cont2 {
+    background: #f2f7ff;
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.9);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.9);
     box-shadow: 0 0 15px rgba(0,0,0,.5);
     float: none; 
     padding-top: none;
     padding-bottom: 1%;
-    padding-right: 1%;
-    padding-left: 1%;
-    
     overflow-x: hidden  
 }
 
 .friends {
-
 }
 
 #form label {
 top-margin: 20px;
 bottom-margin: 2px;  
 }
+.blue {
+  color: #007bff;
+}
 
+.red {
+  color: red;
+}
 .navbar {
-    background-color: #ff5000 !important;
+    background-color: #9be881 !important;
     border-color: white !important;
 }
 .navbar-brand {
-    color: white !important;
+    color: #00a18a !important;
 }
 
 .nav-link {
   color: white !important;
 }
 
-.innerbox
-{
+.innerbox {
    width:250px; /* or whatever width you want. */
    max-width:250px; /* or whatever width you want. */
    display: inline-block;
@@ -76,9 +95,11 @@ hr {
     margin: 1em 0;
     padding: 0;
 }
+
 .alert {
   color: red;
 }
+
 @media (min-width: 992px) { 
 
 .container {
@@ -100,6 +121,8 @@ hr {
   line-height: 50%;
 }
 
- }
+.test {color: #00a18a;}
+
+}
 
 

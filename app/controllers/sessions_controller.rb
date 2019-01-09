@@ -1,11 +1,5 @@
 class SessionsController < ApplicationController
 
-  def index
-  end
-
-  def new
-  end
-
   def create
     user = User.find_by(email: params[:user][:email])
     user = user.try(:authenticate, params[:user][:password])
@@ -14,7 +8,6 @@ class SessionsController < ApplicationController
     @user = user
     redirect_to "/families/#{@user.family.id}"
   
-
     #family = Family.find_by(email: params[:family][:email])
     #family = family.try(:authenticate, params[:family][:password])
     #return redirect_to(controller: 'sessions', action: 'new') unless family
